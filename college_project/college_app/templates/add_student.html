@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-3 text-white" href="{% url 'home' %}"><B> HOME</B></a>
+            <div class="collapse navbar-collapse" id="mynavbar" >
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3 text-white" href="{% url 'add_course_page' %}">ADD COURSE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-3 " href="{% url 'add_student_page' %}">ADD STUDENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx- " href="{% url 'show_student' %}">SHOW STUDENTS</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white mx-3" href="{% url 'show_teacher' %}">SHOW TEACHERS</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link  text-white" href="{% url 'logout' %}">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="text-light" style="margin-left: 40%;">Student Register</h1>
+    <div class="container bg-light mt-5" style="border-radius: 10px; width:50%">
+      <form action="{% url 'add_student' %}" class="form pt-5 pb-5" style="width: 70%; margin-left:10%" method="post">
+        {% csrf_token %}
+        <input type="text" name="student_name" class="form-control" placeholder="STUDENT NAME"><br>
+        <input type="text" name="age"class="form-control" placeholder="AGE"><br>
+        <input type="email" name="email" class="form-control" placeholder="EMAIL"><br>
+        <input type="text" name="ph_no" class="form-control" placeholder="PHONE NUMBER"><br>
+        <select class="form-control" name="select">
+            <option>SELECT COURSE</option>
+            {% for i in course %}
+            <option value="{{ i.id }}">{{ i.Course_Name }}</option>
+            {% endfor %}
+        </select>
+          <button type="submit" class="btn btn-outline-primary" style="margin-left: 30%;margin-top: 5%;">Submit</button>
+      </form>
+    </div>
+</body>
+<style>
+    .navbar {
+        height: 90px;
+    }
+
+    body {
+        background-color: rgb(131, 109, 179);
+    }
+</style>
+</html>

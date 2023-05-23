@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kerala tourism</title>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>KERALA TOURISM</h1>
+    <center>
+    <div>  
+    <a href="{% url 'kozhikode' %}">KOZHIKODE</a>
+    <a href="{% url 'thrissur' %}">THRISSUR</a>
+    <a href="{% url 'eranakulam' %}">ERANAKULAM</a>
+    <a href="{% url 'alappuzha' %}">ALAPPUZHA</a>
+    </div>
+    </center>
+    <img src="{% static 'images/kerala.jpg' %}">
+</body>
+</html>
